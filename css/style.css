@@ -1248,3 +1248,43 @@ body {min-height: 100vh;
   font-size: 2em;
   cursor: pointer;
 } 
+
+
+/* Footer Styles */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.site-footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-content {
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.footer-content p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Footer가 보이는 조건: 화면 높이가 900px 이상일 때 */
+@media (min-height: 900px) {
+    .site-footer {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
