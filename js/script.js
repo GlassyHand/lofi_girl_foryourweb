@@ -1302,3 +1302,27 @@ if (openMeditationBtn && meditationPanel) {
   });
 }
 
+// Footer 관련 기능
+const siteFooter = document.querySelector('.site-footer');
+
+// 화면 크기에 따라 footer 표시/숨김
+function toggleFooter() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    // 화면 높이가 900px 이상이거나 문서 높이가 화면 높이보다 클 때 footer 표시
+    if (windowHeight >= 900 || documentHeight > windowHeight) {
+        siteFooter.classList.add('visible');
+    } else {
+        siteFooter.classList.remove('visible');
+    }
+}
+
+// 페이지 로드 시와 리사이즈 시 footer 상태 확인
+window.addEventListener('load', toggleFooter);
+window.addEventListener('resize', toggleFooter);
+
+// 스크롤 시에도 footer 상태 확인 (동적 콘텐츠 추가 시)
+window.addEventListener('scroll', toggleFooter);
+
+
